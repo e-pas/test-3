@@ -1,18 +1,23 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import "fmt"
 
-func main() {
-	v := Abs(3)
-	fmt.Println(v)
+// User в системе.
+type User struct {
+	FirstName string
+	LastName  string
 }
 
-// Abs возвращает абсолютное значение.
-// Например: 3.1 => 3.1, -3.14 => 3.14, -0 => 0.
-// Покрыть тестами нужно эту функцию.
-func Abs(value float64) float64 {
-	return math.Abs(value)
+// FullName возвращает фамилию и имя человека.
+func (u User) FullName() string {
+	return u.FirstName + " " + u.LastName
+}
+
+func main() {
+	u := User{
+		FirstName: "Misha",
+		LastName:  "Popov",
+	}
+
+	fmt.Println(u.FullName())
 }
