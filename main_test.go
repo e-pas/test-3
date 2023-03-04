@@ -16,7 +16,7 @@ func TestAbs(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		for ik, _ := range tt.values {
+		for ik := range tt.values {
 			t.Run(tt.name, func(t *testing.T) {
 				if res := Abs(tt.values[ik]); res != tt.want[ik] {
 					t.Errorf("Error in test: %s. Waited: %f. Got: %f", tt.name, tt.want[ik], res)
